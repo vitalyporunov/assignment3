@@ -77,3 +77,26 @@ a {
   .feedback.show {
     opacity: 1; /* Show the feedback with transition */
   }
+/* Base styles (common to all themes) */
+body {
+    font-family: sans-serif; 
+    transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out; 
+  }
+  
+  /* Light theme */
+  body.light {
+    background-color: #f4f4f4;
+    color: #333;
+  }
+  
+  /* Dark theme */
+  body.dark {
+    background-color: #333;
+    color: #f4f4f4;
+  }
+  
+  /* Blue theme */
+  body.blue {
+    background-color: #e0f2f7;
+    color: #2196F3;
+  }

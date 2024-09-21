@@ -12,6 +12,15 @@
   <div id="progress-bar"></div>
 </div>
 
+<div>
+    <label for="theme">Select Theme:</label>
+    <select id="theme">
+      <option value="light">Light</option>
+      <option value="dark">Dark</option>
+      <option value="blue">Blue</option> 
+    </select>
+  </div>
+
 <form method="POST" action="{{ url_for('result') }}">
   </form>
 {% endblock %}

@@ -79,3 +79,10 @@ timeLimitInput.addEventListener('change', function() {
 const timerInterval = setInterval(function() {
   // ... (rest of the timer logic) ...
 }, 1000);
+// Theme selection functionality
+const themeSelect = document.getElementById('theme');
+
+themeSelect.addEventListener('change', function() {
+  document.body.classList.remove('light', 'dark', 'blue'); // Remove existing theme classes
+  document.body.classList.add(this.value); // Add the selected theme class
+});
