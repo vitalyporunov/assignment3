@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Quiz Time!</h1>
+<form method="POST" action="{{ url_for('result') }}">
+    {% for i, question in enumerate(quiz_data["questions"]) %}
+        <p>{{ i+1 }}. {{ question.text }}</p>
+        {% for option in question.options %}
+            <input type="radio" name="q{{ i+1 }}" value="{{ option }}"> {{ option }}<br>
+        {% endfor %}
+        <br>
+    {% endfor %}
+    <button type="submit">Submit</button>
+</form>
+{% endblock %}
