@@ -1,20 +1,17 @@
 {% extends 'base.html' %}
 {% block content %}
 <h1>Quiz Time!</h1>
+
+<div>
+  <label for="time-limit">Set Time Limit (in seconds):</label>
+  <input type="number" id="time-limit" name="time-limit" value="60" min="10">
+</div>
+
 <div id="timer">Time left: <span id="time">60</span> seconds</div>
 <div id="progress-container">
   <div id="progress-bar"></div>
 </div>
+
 <form method="POST" action="{{ url_for('result') }}">
-    {% for i, question in enumerate(quiz_data["questions"]) %}
-        <div class="question">
-            <p>{{ i+1 }}. {{ question.text }}</p>
-            {% for option in question.options %}
-                <input type="radio" name="q{{ i+1 }}" value="{{ option }}" onclick="checkAnswer(this, '{{ question.answer }}')"> {{ option }}<br>
-            {% endfor %}
-            <div class="feedback"></div> </div>
-        <br>
-    {% endfor %}
-    <button type="submit">Submit</button>
-</form>
+  </form>
 {% endblock %}

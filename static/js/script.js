@@ -62,3 +62,20 @@ function playCorrectSound() {
     const audio = new Audio('{{ url_for("static", filename="sounds/incorrect.mp3") }}'); // Replace with your sound file
     audio.play();
   }
+  // Get the time limit from the input field
+const timeLimitInput = document.getElementById('time-limit');
+let timeLeft = timeLimitInput.value; // Initialize timeLeft with the input value
+const timerElement = document.getElementById('time');
+
+// Update the timer display initially
+timerElement.textContent = timeLeft;
+
+// Add an event listener to the input field to update the timer when the value changes
+timeLimitInput.addEventListener('change', function() {
+  timeLeft = this.value;
+  timerElement.textContent = timeLeft;
+});
+
+const timerInterval = setInterval(function() {
+  // ... (rest of the timer logic) ...
+}, 1000);
