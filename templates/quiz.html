@@ -7,10 +7,12 @@
 </div>
 <form method="POST" action="{{ url_for('result') }}">
     {% for i, question in enumerate(quiz_data["questions"]) %}
-        <p>{{ i+1 }}. {{ question.text }}</p>
-        {% for option in question.options %}
-            <input type="radio" name="q{{ i+1 }}" value="{{ option }}" onclick="updateProgressBar()"> {{ option }}<br>
-        {% endfor %}
+        <div class="question">
+            <p>{{ i+1 }}. {{ question.text }}</p>
+            {% for option in question.options %}
+                <input type="radio" name="q{{ i+1 }}" value="{{ option }}" onclick="checkAnswer(this, '{{ question.answer }}')"> {{ option }}<br>
+            {% endfor %}
+            <div class="feedback"></div> </div>
         <br>
     {% endfor %}
     <button type="submit">Submit</button>

@@ -15,6 +15,7 @@ const timerInterval = setInterval(function() {
   }
 }, 1000); // Update the timer every 1000ms (1 second)
 
+// Progress bar functionality
 function updateProgressBar() {
     const totalQuestions = {{ quiz_data["questions"]|length }}; 
     const answeredQuestions = document.querySelectorAll('input[type="radio"]:checked').length;
@@ -22,3 +23,18 @@ function updateProgressBar() {
   
     document.getElementById('progress-bar').style.width = progressPercent + '%';
   }
+
+  // Feedback functionality
+  function checkAnswer(selectedOption, correctAnswer) {
+    const feedbackElement = selectedOption.parentNode.querySelector('.feedback');
+    if (selectedOption.value === correctAnswer) {
+      feedbackElement.textContent = "Correct!";
+      feedbackElement.classList.add('correct');
+      feedbackElement.classList.remove('incorrect');
+    } else {
+      feedbackElement.textContent = "Incorrect. The correct answer is " + correctAnswer;
+      feedbackElement.classList.add('incorrect');
+      feedbackElement.classList.remove('correct');
+    }
+  } 
+
