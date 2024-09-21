@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, redirect, url_for
 
 app = Flask(__name__)
 
-# Sample quiz data (you can expand this)
+# Sample quiz data 
 quiz_data = {
     "questions": [
         {
