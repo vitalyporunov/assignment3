@@ -22,6 +22,19 @@ function updateProgressBar() {
     const progressPercent = (answeredQuestions / totalQuestions) * 100;
   
     document.getElementById('progress-bar').style.width = progressPercent + '%';
+function checkAnswer(selectedOption, correctAnswer) {
+     // ... (feedback logic) ...
+      
+    // Add a class to show the feedback with transition
+    feedbackElement.classList.add('show'); 
+      
+    // Play sound effects
+    if (selectedOption.value === correctAnswer) {
+          playCorrectSound();
+     } else {
+          playIncorrectSound();
+        }
+      }
   }
 
   // Feedback functionality
@@ -38,3 +51,14 @@ function updateProgressBar() {
     }
   } 
 
+// Function to play correct answer sound
+function playCorrectSound() {
+    const audio = new Audio('{{ url_for("static", filename="sounds/correct.mp3") }}'); // Replace with your sound file
+    audio.play();
+  }
+  
+  // Function to play incorrect answer sound
+  function playIncorrectSound() {
+    const audio = new Audio('{{ url_for("static", filename="sounds/incorrect.mp3") }}'); // Replace with your sound file
+    audio.play();
+  }
