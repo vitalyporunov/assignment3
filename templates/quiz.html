@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
+
 <h1>Quiz Time!</h1>
 
 <div>
@@ -12,15 +13,27 @@
   <div id="progress-bar"></div>
 </div>
 
-<div>
-    <label for="theme">Select Theme:</label>
-    <select id="theme">
-      <option value="light">Light</option>
-      <option value="dark">Dark</option>
-      <option value="blue">Blue</option> 
-    </select>
-  </div>
-
 <form method="POST" action="{{ url_for('result') }}">
-  </form>
+    {% for i, question in enumerate(quiz_data["questions"]) %}
+        <div class="question">
+            <p>{{ i+1 }}. {{ question.text }}</p>
+            {% for option in question.options %}
+                <input type="radio" name="q{{ i+1 }}" value="{{ option }}" onclick="checkAnswer(this, '{{ question.answer }}')"> {{ option }}<br>
+            {% endfor %}
+            <div class="feedback"></div>
+        </div>
+        <br>
+    {% endfor %}
+    <button type="submit">Submit</button>
+</form>
+
+<div>
+  <label for="theme">Select Theme:</label>
+  <select id="theme">
+    <option value="light">Light</option>
+    <option value="dark">Dark</option>
+    <option value="blue">Blue</option>
+  </select>
+</div>
+
 {% endblock %}
