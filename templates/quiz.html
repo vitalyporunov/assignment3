@@ -14,17 +14,17 @@
 </div>
 
 <form method="POST" action="{{ url_for('result') }}">
-    {% for i, question in enumerate(quiz_data["questions"]) %}
-        <div class="question">
-            <p>{{ i+1 }}. {{ question.text }}</p>
-            {% for option in question.options %}
-                <input type="radio" name="q{{ i+1 }}" value="{{ option }}" onclick="checkAnswer(this, '{{ question.answer }}')"> {{ option }}<br>
-            {% endfor %}
-            <div class="feedback"></div>
-        </div>
-        <br>
-    {% endfor %}
-    <button type="submit">Submit</button>
+  {% for i, question in enumerate(quiz_data["questions"]) %}
+    <div class="question">
+      <p>{{ i+1 }}. {{ question.text }}</p>
+      {% for option in question.options %}
+        <input type="radio" name="q{{ i+1 }}" value="{{ option }}" onclick="checkAnswer(this, '{{ question.answer }}')"> {{ option }}<br>
+      {% endfor %}
+      <div class="feedback"></div>
+    </div>
+    <br>
+  {% endfor %}
+  <button type="submit">Submit</button>
 </form>
 
 <div>
