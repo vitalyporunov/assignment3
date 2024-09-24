@@ -13,7 +13,7 @@
   <div id="progress-bar"></div>
 </div>
 
-<form method="POST" action="{{ url_for('result') }}">
+<form method="POST" action="{{url_for('result')}}">
   {% for i, question in enumerate(quiz_data["questions"]) %}
     <div class="question">
       <p>{{ i+1 }}. {{ question.text }}</p>
