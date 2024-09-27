@@ -17,7 +17,7 @@ quiz_data = {
 def index():
     return render_template('index.html')
 
-@app.route('/quiz')
+@app.route('/quiz', methods=['GET'])
 def quiz():
     return render_template('quiz.html', quiz_data=quiz_data)
 
