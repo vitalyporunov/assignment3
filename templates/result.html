@@ -1,15 +1,15 @@
-{% extends 'base.html'%}
+{% extends 'base.html' %}
 {% block content %}
 
 <h1>Quiz Results</h1>
 <p>You scored {{ score }} out of {{ total }}.</p>
 
 <div id="social-sharing">
-  <a href="https://www.facebook.com/sharer/sharer.php?u={{ url_for('result', _external=True) }}&quote=I scored {{ score }} out of {{ total }} on this quiz! Can you beat me?" target="_blank">
+  <a href="https://www.facebook.com/sharer/sharer.php?u={{ url_for('result', _external=True) }}&quote={{ 'I scored {} out of {} on this quiz! Can you beat me?'.format(score, total) | urlencode }}" target="_blank">
     Share on Facebook
   </a>
 
-  <a href="https://twitter.com/intent/tweet?url={{ url_for('result', _external=True) }}&text=I scored {{ score }} out of {{ total }} on this quiz! Can you beat me?" target="_blank">
+  <a href="https://twitter.com/intent/tweet?url={{ url_for('result', _external=True) }}&text={{ 'I scored {} out of {} on this quiz! Can you beat me?'.format(score, total) | urlencode }}" target="_blank">
     Share on Twitter
   </a>
 </div>

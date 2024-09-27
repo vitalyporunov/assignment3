@@ -1,10 +1,12 @@
-{% extends 'base.html'%}
+{% extends 'base.html' %}
 {% block content %}
 
 <section class="hero">
-  <h2>Welcome to the Quiz App!</h2>
-  <p>Test your knowledge and challenge yourself with our fun and interactive quizzes.</p>
-  <a href="{{ url_for('quiz') }}" class="start-button">Start Quiz</a>
+  <header>
+    <h2>Welcome to the Quiz App!</h2>
+    <p>Test your knowledge and challenge yourself with our fun and interactive quizzes.</p>
+    <a href="{{ url_for('quiz') }}" class="start-button">Start Quiz</a>
+  </header>
 </section>
 
 <section class="features">
