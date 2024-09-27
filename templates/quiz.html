@@ -36,4 +36,36 @@
   </select>
 </div>
 
+<script>
+  let timeLimit = 60; // Default time limit
+  const timerDisplay = document.getElementById('time');
+  const progressBar = document.getElementById('progress-bar');
+
+  function startTimer() {
+    let timeLeft = timeLimit;
+    timerDisplay.textContent = timeLeft;
+
+    const interval = setInterval(() => {
+      timeLeft--;
+      timerDisplay.textContent = timeLeft;
+      progressBar.style.width = ((timeLimit - timeLeft) / timeLimit * 100) + '%';
+
+      if (timeLeft <= 0) {
+        clearInterval(interval);
+        alert('Time is up!');
+        document.querySelector('form').submit(); // Auto-submit the form when time runs out
+      }
+    }, 1000);
+  }
+
+  document.getElementById('time-limit').addEventListener('change', function() {
+    timeLimit = this.value;
+    timerDisplay.textContent = timeLimit;
+    progressBar.style.width = '0%'; // Reset progress bar
+    startTimer();
+  });
+
+  window.onload = startTimer; // Start the timer on page load
+</script>
+
 {% endblock %}
